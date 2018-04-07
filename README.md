@@ -57,7 +57,7 @@ mysql $TARGET_DB -uSomeUser -pSomePassword<<EOF
 Alternatively (though not recommended for production environments) you can configure MySQL so that when the command *mysql* is called in [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh) (line 24) there is a default login and that database user has sufficient privilege to update the database tables. See this blog for [configuring MySQL](https://github.com/CodeforAustralia/vhs/wiki/Configuring-MySQL).
 
 
-## Setup
+## Usage
 Just download the files and use them from command line (on a Linux system where bash is available.) Start with getting some help:-
 
 ```
