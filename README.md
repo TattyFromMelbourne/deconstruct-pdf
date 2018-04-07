@@ -18,7 +18,7 @@ See a [quick guide](https://www.howtogeek.com/228531/how-to-convert-a-pdf-file-t
 
 **2a** To create the database and the relevant tables you may want to do something like this:-
 
-```sh
+```
 CREATE DATABASE `some_database` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE `some_database`;
@@ -50,7 +50,7 @@ CREATE TABLE `letter_history` (
 
 **2b** You will also have to make sure you include the appropriate MySQL credentials in the [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh#L24) script. So, for example, line 24 of [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh#L24) becomes
 
-```sh
+```
 mysql $TARGET_DB -uSomeUser -pSomePassword<<EOF
 ```
 
@@ -60,7 +60,7 @@ Alternatively (though not recommended for production environments) you can confi
 ## Setup
 Just download the files and use them from command line (on a Linux system where bash is available.) Start with getting some help:-
 
-```sh
+```
 $sh pdf2text.sh --help
 Usage:
   [-d document_directory] [-b base_directory] [-t target_database] [-h] [--help] [-v]
@@ -77,7 +77,7 @@ Options:
 
 Then you might want to do a test run with the sample documents provided.
 
-```sh
+```
 $ sh pdf2text.sh -d sample_documents/ -b ./output -t some_database
 -----------------------------------------------------
 PDF to TEXT and HTML Conversion
@@ -155,7 +155,7 @@ e.g. _/var/www/vhs/correspondence_
 You also need to specify a target database in which you want certain tables to be updated. If your MySQL database, for example, is named "vhsdb" you will want to issues a command such as:-
 
 
-```sh
+```
 $ sh pdf2text.sh -d "/home/someUser/ftp/incoming" -b "/var/www/vhs/correspondence" -t vhsdb >> some.log
 ```  
 
