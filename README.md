@@ -18,7 +18,7 @@ See a [quick guide](https://www.howtogeek.com/228531/how-to-convert-a-pdf-file-t
 
 **2a** To create the database and the relevant tables you may want to do something like this:-
 
-```
+```sh
 CREATE DATABASE `some_database` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE `some_database`;
@@ -46,12 +46,6 @@ CREATE TABLE `letter_history` (
   `updated_at` timestamp NULL DEFAULT NULL
 );
 
-
-CREATE TABLE `user_services` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `reference_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-);
 ```
 
 **2b** You will also have to make sure you have set up authentication correctly for the MySQL database so that when the command *mysql* is called in [populate-db.sh](https://github.com/CodeforAustralia/deconstruct-pdf/blob/master/populate-db.sh) (line 24) that there is a default login and that that database user has sufficient privilege to update the database tables. See this blog for [configuring MySQL](https://github.com/CodeforAustralia/vhs/wiki/Configuring-MySQL).
@@ -60,7 +54,7 @@ CREATE TABLE `user_services` (
 ## Setup
 Just download the files and use them from command line (on a Linux system where bash is available.) Start with getting some help:-
 
-```
+```sh
 $sh pdf2text.sh --help
 Usage:
   [-d document_directory] [-b base_directory] [-t target_database] [-h] [--help] [-v]
@@ -77,7 +71,7 @@ Options:
 
 Then you might want to do a test run with the sample documents provided.
 
-```
+```sh
 $ sh pdf2text.sh -d sample_documents/ -b ./output -t some_database
 -----------------------------------------------------
 PDF to TEXT and HTML Conversion
@@ -155,12 +149,8 @@ e.g. _/var/www/vhs/correspondence_
 You also need to specify a target database in which you want certain tables to be updated. If your MySQL database, for example, is named "vhsdb" you will want to issues a command such as:-
 
 
-```
+```sh
 $ sh pdf2text.sh -d "/home/someUser/ftp/incoming" -b "/var/www/vhs/correspondence" -t vhsdb >> some.log
 ```  
 
 N.B. You will certainly want to watch your permissions and ownership as the web server process has to be able to at least read the files you have produced.
-
-## Tested
-
-Tested on Ubuntu 16.04
