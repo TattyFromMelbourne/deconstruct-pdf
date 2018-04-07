@@ -54,7 +54,7 @@ CREATE TABLE `letter_history` (
 mysql $TARGET_DB -uSomeUser -pSomePassword<<EOF
 ```
 
-Alternatively (though not recommended for production environments) you can configure MySQL so that when the command *mysql* is called in [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh) (line 24) there is a default login and that that database user has sufficient privilege to update the database tables. See this blog for [configuring MySQL](https://github.com/CodeforAustralia/vhs/wiki/Configuring-MySQL).
+Alternatively (though not recommended for production environments) you can configure MySQL so that when the command *mysql* is called in [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh) (line 24) there is a default login and that database user has sufficient privilege to update the database tables. See this blog for [configuring MySQL](https://github.com/CodeforAustralia/vhs/wiki/Configuring-MySQL).
 
 
 ## Setup
