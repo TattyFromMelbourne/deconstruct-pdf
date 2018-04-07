@@ -48,7 +48,13 @@ CREATE TABLE `letter_history` (
 
 ```
 
-**2b** You will also have to make sure you have set up authentication correctly for the MySQL database so that when the command *mysql* is called in [populate-db.sh](https://github.com/CodeforAustralia/deconstruct-pdf/blob/master/populate-db.sh) (line 24) that there is a default login and that that database user has sufficient privilege to update the database tables. See this blog for [configuring MySQL](https://github.com/CodeforAustralia/vhs/wiki/Configuring-MySQL).
+**2b** You will also have to make sure you include the appropriate MySQL credentials in the [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh#L24) script. So, for example, line 24 of [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh#L24) becomes
+
+```sh
+mysql $TARGET_DB -uSomeUser -pSomePassword<<EOF
+```
+
+Alternatively (though not recommended for production environments) you can configure MySQL so that when the command *mysql* is called in [populate-db.sh](https://github.com/TattyFromMelbourne/deconstruct-pdf/blob/master/populate-db.sh) (line 24) there is a default login and that that database user has sufficient privilege to update the database tables. See this blog for [configuring MySQL](https://github.com/CodeforAustralia/vhs/wiki/Configuring-MySQL).
 
 
 ## Setup
