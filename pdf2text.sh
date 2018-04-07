@@ -162,9 +162,11 @@ do
 
 	# get the reference number  	
 	REF_NO=$(fgrep "Ref No. " $TEXT_FILE | sed 's/Ref No. //g' | sed 's/ //g')
+	FOUND_STRING="Ref No. "
 	if [ -z "$REF_NO" ] 
 	then
 			REF_NO=$(fgrep "Reference Number: " $TEXT_FILE | sed 's/Reference Number: //g' | sed 's/ //g')
+			FOUND_STRING="Reference Number: "
 	fi
 
 
@@ -189,7 +191,7 @@ do
 	else
     		UUID=$(dbus-uuidgen);
 
-        	LETTER_DATE=$(grep -n "Ref No. " $TEXT_FILE| cut -d : -f 1)
+        	LETTER_DATE=$(grep -n "$FOUND_STRING" $TEXT_FILE| cut -d : -f 1)
         	LETTER_DATE=$(head -n$LETTER_DATE $TEXT_FILE | tail -2 | head -n1)
 		COUNTER=0
 		for word in $LETTER_DATE
